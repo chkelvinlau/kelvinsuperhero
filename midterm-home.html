@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cheuk Hin (Kelvin) Lau, A00935770</title>
+    </head>
+    
+    <style>
+        body {
+            margin:0;
+        }
+        
+        #top {
+            position:relative;
+            height:25vh;
+            width:65vw;
+            /* background-color:red; */
+        }
+        
+        #topright {
+            position:fixed;
+            right:0;
+        }
+        
+        .gear {
+            position:relative;
+            width:50px;
+            height:50px;
+            /* background-color:turquoise; */
+        }
+        
+        #bottom {
+            position:relative;
+            height:25vh;
+            width:65vw;
+            /* background-color:purple; */
+        }
+        
+        #thumb4 {
+            width:15%;
+            height:auto;
+            border-radius:200px;
+            display:inline;
+            margin:10px;
+        }
+        
+        #middle {
+            position:relative;
+            height:50vh;
+            /* background-color:green; */
+        }
+        
+        #title {
+            position:relative;
+            width:50%;
+            height:auto;
+            top:8%;
+            left:3%;
+            font-size:200%;
+            /* background-color:blue; */
+        }
+        
+        #description {
+            position:relative;
+            width:65%;
+            height:auto;
+            top:15%;
+            left:3%;
+            /* background-color:yellow; */
+        }
+        
+        #imagereplace {
+            position:relative;
+            float:left;
+            background-image:url(q.jpg);
+            background-repeat:no-repeat;
+            background-size:97%;
+            background-position:center top;
+            height:50vh;
+            width:25vw;
+            /* background-color:pink; */
+        }
+        
+        #menu {
+            position:fixed;
+            right:-500px;
+            width:350px;
+            height:500px;
+            background-color:lightgray;
+        }
+            
+        .thumb2 {
+            position:relative;
+            width:39%;
+            height:auto;
+            padding:5%;
+        }
+        
+        .mytext{
+            position:relative;
+            top:10%;
+            right:-6%;
+            width:300px;
+            height:15px;
+            margin-top:5px;
+            margin-bottom:20px;
+        }
+        
+        #button1 {
+            position:relative;
+            top:10%;
+            right:-50%;
+            height:40px;
+            width:150px;
+        }
+        
+        #button2 {
+            position:relative;
+            top:10%;
+            right:-50%;
+            height:40px;
+            width:150px;
+        }
+        
+        #custom {
+            position:relative;
+            top:5%;
+            right:-500px;
+        }
+    </style>
+    
+    <body>
+        <div id="topright">
+            <img class="gear" src="gear.png" />
+        </div>
+        <div id ="top">
+            <img src="1.jpg" id="thumb4" class="thumb"/>            
+            <img src="3.jpg" id="thumb4" class="thumb"/>            
+            <img src="10.jpg" id="thumb4" class="thumb"/>
+            <img src="4.jpg" id="thumb4" class="thumb"/>
+        </div>
+        <div id="middle">
+            <div id="imagereplace"></div>
+            <div id="title">Title For The Image</div>
+            <div id="description">Description for the image. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin elementum aliquam ipsum, quis varius nunc fringilla ut. Nam suscipit vestibulum tortor, vel pharetra elit ultricies nec. In id arcu sollicitudin, porta orci in, euismod sem. Sed nec nibus elit. Nunc ut lacinia nisi, sit amet facilisis mi. Nam maximus lacus turpis, vitae scelerisque lectus sagittis a. Donec leo nulla, pretium at tristique et, sodales eu arcu. In hac habitasse platea dictumst. Nam nibus in magna vitae lobortis. Aenean fringilla metus quis sagittis lacinia. Nulla sed nulla e‑citur, dictum magna ac, interdum neque. Pellentesque mattis a augue vel ullamcorper. Nunc sit amet erat cursus, rutrum eros at, commodo ex.</div>
+        </div>
+        <div id ="bottom">
+            <img src="8.jpg" id="thumb4" class="thumb"/>         
+            <img src="5.jpg" id="thumb4" class="thumb"/>         
+            <img src="2.jpg" id="thumb4" class="thumb"/>
+            <img src="6.jpg" id="thumb4" class="thumb"/>
+        </div>
+        <div id="menu">
+            <img class="thumb2" src="7.jpg" />
+            <img class="thumb2" src="9.jpg" />
+            <input type="text" placeholder="Text Input for title                  (Default if both not filled)" id="title_input" class="mytext" />
+            <input type="text" placeholder="Text Input for description      (Default if both not filled)" id="description_input" class="mytext" />
+            <button id="button1">Custom Image</button>
+            <div id ="custom">
+                <input type="text" placeholder="Text Input for image link" id="image_input" class="mytext" />
+                <button id="button2">Add Custom</button>
+            </div>
+        </div>
+        <script>
+            var Pic1 = document.getElementsByClassName("thumb")[0];
+            var Pic2 = document.getElementsByClassName("thumb")[1];
+            var Pic3 = document.getElementsByClassName("thumb")[2];
+            var Pic4 = document.getElementsByClassName("thumb")[3];
+            var Pic5 = document.getElementsByClassName("thumb")[4];
+            var Pic6 = document.getElementsByClassName("thumb")[5];
+            var Pic7 = document.getElementsByClassName("thumb")[6];
+            var Pic8 = document.getElementsByClassName("thumb")[7];
+            
+            var Pic9 = document.getElementsByClassName("thumb2")[0];
+            var Pic10 = document.getElementsByClassName("thumb2")[1];
+            
+            var QuestionMark = document.getElementById("imagereplace");
+            var TitleText = document.getElementById("title");
+            var DescriptionText = document.getElementById("description");
+            
+            var GearIcon = document.getElementsByClassName("gear")[0];
+            var GearMenu = document.getElementById("menu");
+            
+            var TheTop = document.getElementById("top");
+            var TheBottom = document.getElementById("bottom");
+            
+            var FirstButton = document.getElementById("button1");
+            var SecondButton = document.getElementById("button2");
+            var CustomInfo = document.getElementById("custom");
+            
+            GearIcon.onclick = function(){
+                 GearMenu.style.right = "1%"
+                 GearMenu.style.top = "10%"
+            }
+            
+            // for later use to not have to copy/paste same info
+            var link = "";
+            var title = "";
+            var text = "";
+            var title2 = "";
+            var text2 = "";
+            
+            // Pic9 & Pic10 are the remaining 2 in gear menu
+            Pic9.onclick = function(){
+                link = Pic9.src
+                GearMenu.style.right = "-500px"
+                QuestionMark.style.backgroundImage = "url("+link+")";
+                QuestionMark.style.backgroundSize = "cover";
+                // creates new circle icon and puts at top banner
+                var newImg = document.createElement("img");
+                newImg.src = link;
+                newImg.id = "thumb4"
+                TheTop.appendChild(newImg);
+                // if both user input fields aren't blank
+                if (title_input.value != "" && description_input.value != ""){
+                    // make the title and description the input
+                    TitleText.innerHTML = title_input.value;
+                    DescriptionText.innerHTML = description_input.value;
+                    // previous information remains when you click on the new circle icon
+                    newImg.onclick = function(){
+                    QuestionMark.style.backgroundImage = "url(7.jpg)";
+                    TitleText.innerHTML = title_input.value;
+                    DescriptionText.innerHTML = description_input.value;
+                    }
+                }
+                // if either/both user input fields are blank, default
+                else {
+                    TitleText.innerHTML = "Emma Frost"
+                    DescriptionText.innerHTML = "Emma Grace Frost is a fictional character appearing in American comic books published by Marvel Comics, most commonly in association with the X-Men. The character first appeared in Uncanny X-Men #129 (January 1980), and was created by writer Chris Claremont and artist/co-writer John Byrne. Emma Frost, also known as the White Queen, has evolved from a supervillain and foe of the X-Men, to becoming a superhero and one of the X-Men's most central members and leaders."
+                    // store default values to avoid copy/paste same info
+                    title = TitleText.innerHTML
+                    text = DescriptionText.innerHTML
+                    // previous information remains when you click on the new circle icon
+                    newImg.onclick = function(){
+                    QuestionMark.style.backgroundImage = "url(7.jpg)";
+                    // references above saved info to avoid copy/paste
+                    TitleText.innerHTML = title
+                    DescriptionText.innerHTML = text
+                    }
+                }  
+            }
+            Pic10.onclick = function(){
+                link = Pic10.src
+                GearMenu.style.right = "-500px"
+                QuestionMark.style.backgroundImage = "url("+link+")";
+                QuestionMark.style.backgroundSize = "cover";
+                // creates new circle icon and puts in bottom banner
+                var newImg2 = document.createElement("img");
+                newImg2.src = link;
+                newImg2.id = "thumb4"
+                TheBottom.appendChild(newImg2);
+                // if both user input fields aren't blank
+                if (title_input.value != "" && description_input.value != ""){
+                    // make the title and description the input
+                    TitleText.innerHTML = title_input.value;
+                    DescriptionText.innerHTML = description_input.value;
+                    // previous information remains when you click on the new circle icon
+                    newImg2.onclick = function(){
+                    QuestionMark.style.backgroundImage = "url(9.jpg)";
+                    TitleText.innerHTML = title_input.value;
+                    DescriptionText.innerHTML = description_input.value;
+                    }
+                }
+                // if either/both user input fields are blank, default
+                else {
+                    TitleText.innerHTML = "Apocolypse"
+                    DescriptionText.innerHTML = "Apocalypse (En Sabah Nur) is a fictional supervillain appearing in comic books published by Marvel Comics. He is the world's very first mutant, and is usually portrayed as one of the archenemies of the X-Men. Created by writer Louise Simonson and artist Jackson Guice, Apocalypse first appeared in X-Factor #5 (May 1986)."
+                    // store default values to avoid copy/paste same info
+                    title2 = TitleText.innerHTML
+                    text2 = DescriptionText.innerHTML
+                    // previous information remains when you click on the new circle icon
+                    newImg2.onclick = function(){
+                    QuestionMark.style.backgroundImage = "url(9.jpg)";
+                    // references above saved info to avoid copy/paste
+                    TitleText.innerHTML = title2
+                    DescriptionText.innerHTML = text2
+                    }
+                }
+            }
+            
+            // When click on "Custom Image" button, additional text and button appears
+            FirstButton.onclick = function(){
+                CustomInfo.style.right = "0px";
+            // If image link value isn't blank, use custom image link
+            }
+            SecondButton.onclick = function(){
+                if (image_input.value != "") {
+                    QuestionMark.style.backgroundImage = "url("+image_input.value+")"
+                }
+                // Creates new circle at the bottom banner
+                var newImg3 = document.createElement("img");
+                newImg3.src = image_input.value;
+                newImg3.id = "thumb4"
+                TheBottom.appendChild(newImg3);
+                // Saves previous information for later icon click
+                newImg3.onclick = function(){
+                QuestionMark.style.backgroundImage = "url("+image_input.value+")";
+                TitleText.innerHTML = title_input.value
+                DescriptionText.innerHTML = description_input.value;
+                }
+            }
+            // Original 8 icons javascript
+            Pic1.onclick = function(){
+                link = Pic1.src
+                QuestionMark.style.backgroundImage = "url("+link+")";
+                QuestionMark.style.backgroundSize = "cover";
+                TitleText.innerHTML = "Black Panther"
+                DescriptionText.innerHTML = "The Black Panther (T'Challa) is a fictional superhero appearing in American comic books published by Marvel Comics. Created by writer-editor Stan Lee and penciller and co-plotter Jack Kirby, he first appeared in Fantastic Four #52 (July 1966). He is the first black superhero in mainstream American comics, debuting years before such early African-American superheroes as Marvel Comics' the Falcon (1969) and Luke Cage (1972), and DC Comics' Green Lantern John Stewart (1971), Tyroc (1976), and Black Lightning (1977). The character is usually depicted as the king and protector of Wakanda, a fictional African nation. Chadwick Boseman portrays the Black Panther in Captain America: Civil War (2016) and is set to return in Black Panther (2018), both set in the Marvel Cinematic Universe."
+            }
+            Pic2.onclick = function(){
+                link = Pic2.src
+                QuestionMark.style.backgroundImage = "url("+link+")";
+                QuestionMark.style.backgroundSize = "cover";
+                TitleText.innerHTML = "She-Hulk"
+                DescriptionText.innerHTML = "She-Hulk (Jennifer Walters) is a fictional character appearing in American comic books published by Marvel Comics. Created by writer Stan Lee and artist John Buscema, she first appeared in Savage She-Hulk #1 (February 1980). A cousin to Dr. Bruce Banner, Walters once received an emergency blood transfusion from him when she was wounded, which led to her acquiring a milder version of his Hulk condition. As such, Walters becomes a large powerful green-hued version of herself while still largely retaining her personality; in particular she retains her intelligence and emotional control, though like Hulk, she still becomes stronger if enraged. In later issues, her transformation is permanent."
+            }
+            Pic3.onclick = function(){
+                link = Pic3.src
+                QuestionMark.style.backgroundImage = "url("+link+")";
+                QuestionMark.style.backgroundSize = "cover";
+                TitleText.innerHTML = "Winter Soldier"
+                DescriptionText.innerHTML = "In 2005, Marvel launched a new Captain America series (Volume 5) with writer Ed Brubaker, who revealed that Bucky did not die in World War II. It was revealed that after the plane exploded, General Vasily Karpov and the crew of a Russian patrol submarine found Bucky's cold-preserved body, albeit with his left arm severed. Bucky was revived in Moscow, but suffered brain damage with amnesia as a result of the explosion. Scientists attached a bionic arm, periodically upgrading it as technology improved."
+            }
+            Pic4.onclick = function(){
+                link = Pic4.src
+                QuestionMark.style.backgroundImage = "url("+link+")";
+                QuestionMark.style.backgroundSize = "cover";
+                TitleText.innerHTML = "Thor"
+                DescriptionText.innerHTML = "Thor is a fictional superhero appearing in American comic books published by Marvel Comics. The character, based on the Norse mythological deity of the same name, is the Asgardian god of thunder and possesses the enchanted hammer Mjolnir, which grants him the ability of flight and weather manipulation amongst his other superhuman attributes."
+            }
+            Pic5.onclick = function(){
+                link = Pic5.src
+                QuestionMark.style.backgroundImage = "url("+link+")";
+                QuestionMark.style.backgroundSize = "cover";
+                TitleText.innerHTML = "Nova (Richard Rider)"
+                DescriptionText.innerHTML = "Nova (Richard Rider) is a fictional superhero appearing in American comic books published by Marvel Comics. The character appeared historically as the star of his own series, and at other times, as a supporting character in team books such as The New Warriors. He is a member of the intergalactic police force known as the Nova Corps, for which he gained superhuman abilities including enhanced strength, flight and resistance to injury."
+            }
+            Pic6.onclick = function(){
+                link = Pic6.src
+                QuestionMark.style.backgroundImage = "url("+link+")";
+                QuestionMark.style.backgroundSize = "cover";
+                TitleText.innerHTML = "Iron Fist"
+                DescriptionText.innerHTML = "Iron Fist (Daniel \"Danny\" Rand) is a fictional superhero appearing in American comic books published by Marvel Comics. Created by Roy Thomas and Gil Kane, Iron Fist first appeared in Marvel Premiere #15 (May 1974). The character is a practitioner of martial arts and the wielder of a mystical force known as the Iron Fist, which allows him to summon and focus his chi. He starred in his own solo series in the 1970s, and shared the title Power Man and Iron Fist for several years with Luke Cage, partnering with Cage to form the superhero team Heroes for Hire. The character has starred in numerous solo titles since, including The Immortal Iron Fist, which expanded on his origin story and the history of the Iron Fist."
+            }
+            Pic7.onclick = function(){
+                link = Pic7.src
+                QuestionMark.style.backgroundImage = "url("+link+")";
+                QuestionMark.style.backgroundSize = "cover";
+                TitleText.innerHTML = "Doctor Strange"
+                DescriptionText.innerHTML = "Dr. Stephen Vincent Strange, also known as Doctor Strange, is a fictional superhero appearing in American comic books published by Marvel Comics. Created by artist and character conceptualist Steve Ditko, the character first appeared in Strange Tales #110 (cover-dated July 1963). A former neurosurgeon, Strange serves as the Sorcerer Supreme, the primary protector of Earth against magical and mystical threats. Debuting in the Silver Age of comics, the character has been featured in several comic book series and adapted in a variety of media including video games, an animated television show, and films. Inspired by storytellings of black magic and Chandu the Magician, Strange was created to bring a different kind of character and themes of mysticism to Marvel Comics."
+            }
+            Pic8.onclick = function(){
+                link = Pic8.src
+                QuestionMark.style.backgroundImage = "url("+link+")";
+                QuestionMark.style.backgroundSize = "cover";
+                TitleText.innerHTML = "Hawkeye"
+                DescriptionText.innerHTML = "Hawkeye (Clint Barton) is a fictional superhero appearing in American comic books published by Marvel Comics. Created by writer Stan Lee and artist Don Heck, the character first appeared as a villain in Tales of Suspense #57 (Sept. 1964) and later joined the Avengers in The Avengers #16 (May 1965). He has been a prominent member of the team ever since. He was also ranked at #44 on IGN's Top 100 Comic Book Heroes list."
+            }
+        </script>
+    </body>
+</html>
